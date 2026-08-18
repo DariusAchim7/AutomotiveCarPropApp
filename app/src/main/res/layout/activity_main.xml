@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Stratul 1: fundalul -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_car"
+        android:scaleType="centerCrop" />
+
+    <!-- Stratul 2: văl întunecat pentru lizibilitate -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/dash_overlay" />
+
+    <!-- Stratul 3: conținutul (cele două rânduri de carduri) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <!-- Rândul 1: valori dinamice -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_speed" />
+                <TextView style="@style/DashLabel" android:text="Speed (km/h)" />
+                <TextView style="@style/DashValue" android:id="@+id/tvSpeed" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_gear" />
+                <TextView style="@style/DashLabel" android:text="Gear" />
+                <TextView style="@style/DashValue" android:id="@+id/tvGear" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_fuel" />
+                <TextView style="@style/DashLabel" android:text="Fuel" />
+                <TextView style="@style/DashValue" android:id="@+id/tvFuel" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_rpm" />
+                <TextView style="@style/DashLabel" android:id="@+id/tvRpmLabel" android:text="Engine RPM" />
+                <TextView style="@style/DashValue" android:id="@+id/tvRpm" android:text="--" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Rândul 2: uși + info statice -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_door" />
+                <TextView style="@style/DashLabel" android:text="Doors" />
+                <TextView style="@style/DashValue" android:id="@+id/tvDoors" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_car" />
+                <TextView style="@style/DashLabel" android:text="Manufacturer" />
+                <TextView style="@style/DashValue" android:id="@+id/tvMake" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_car" />
+                <TextView style="@style/DashLabel" android:text="Car Model" />
+                <TextView style="@style/DashValue" android:id="@+id/tvModel" android:text="--" />
+            </LinearLayout>
+
+            <LinearLayout style="@style/DashCard">
+                <ImageView style="@style/DashIcon" android:src="@drawable/ic_year" />
+                <TextView style="@style/DashLabel" android:text="Model Year" />
+                <TextView style="@style/DashValue" android:id="@+id/tvYear" android:text="--" />
+            </LinearLayout>
+        </LinearLayout>
+
+
+        <!-- Rândul 3: speed graph -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bg_card"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                style="@style/DashLabel"
+                android:layout_weight="0"
+                android:layout_gravity="start"
+                android:textSize="16sp"
+                android:text="Speed history (last 60s)" />
+
+            <com.example.automotivecarpropapp.SpeedGraphView
+                android:id="@+id/speedGraph"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</FrameLayout>

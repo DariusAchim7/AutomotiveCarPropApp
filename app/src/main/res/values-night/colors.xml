@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="dash_overlay">#66000000</color>
+    <color name="dash_card_bg">#B31A1A1A</color>
+    <color name="dash_label_text">#FFFFFF</color>
+    <color name="dash_value_bg">#FFFFFF</color>
+    <color name="dash_value_text">#E53935</color>
+    <color name="dash_icon_bg">#FF5722</color>
+</resources>
